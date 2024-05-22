@@ -1,0 +1,21 @@
+<h1>Day 1 task</h1>
+<div>
+  <h3>Print the value in console using events</h3>
+  <input #cityInput type="text" placeholder="Filter by city" (input)=onInputChange($event)/>
+</div>
+
+
+ <div>
+    <h3>Print the value instantly using event</h3>
+    <input #cityInput type="text" placeholder="Filter by city" (input)=onInputChangeInst($event)/>
+    <p>{{showInstString}}</p>
+</div>
+  
+
+
+<div>
+    <h3>Print the value after click using 2 way binding</h3>
+    <input #cityInput type="text" placeholder="Filter by city" [(ngModel)]="showAfetClickString"/>
+    <button class="primary" type="button"(click)=showAfetClick()>Search</button>
+    <p>{{showdata}}</p>
+</div> 

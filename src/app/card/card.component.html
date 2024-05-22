@@ -1,12 +1,10 @@
-<div class="card-container">
-  <img
-    src="{{ housingLocation.photo }}"
-    alt="photo"
-    class="card-image-container"
-  />
-  <div>
-    <h3>{{ housingLocation.name }}</h3>
-    <p>city:{{ housingLocation.city }}</p>
-    <p>state:{{ housingLocation.state }}</p>
+<div class="appCardContainer">
+  <div class="card-container" *ngFor="let location of housingLocation">
+    <img [src]="location.photo" alt="photo" class="card-image-container" />
+    <div>
+      <h3>{{ location.name }}</h3>
+      <p>city: {{ location.city }}</p>
+      <p>state: {{ location.state }}</p>
+    </div>
   </div>
 </div>

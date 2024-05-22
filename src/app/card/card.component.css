@@ -19,3 +19,12 @@
     width: 100%;
 }
 
+.appCardContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: gray;
+    padding: 75px 30px;
+}

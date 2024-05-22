@@ -11,7 +11,7 @@ export class SearchComponent {
   searchString:string=''
   showInstString:string=''
   showAfetClickString:string=''
-  showdata:string=''
+  showdata:boolean=false
 
   onInputChange(e:any){
     this.searchString=e.target.value
@@ -19,11 +19,12 @@ export class SearchComponent {
   }
 
   onInputChangeInst(e:any){
-    this.showInstString=e.target.value
+    this.showdata=false
+    this.showAfetClickString=e.target.value
   }
 
   showAfetClick(){
-    this.showdata=this.showAfetClickString
+    this.showdata=true
   }
 
 

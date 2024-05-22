@@ -7,5 +7,15 @@ import { HousingLocation } from '../housing-location';
   styleUrls: ['./card-details.component.css']
 })
 export class CardDetailsComponent {
-  @Input() housingLocation!:HousingLocation;
+  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
+  housingLocation:HousingLocation={
+    id: 0,
+    name: 'Acme Fresh Start Housing',
+    city: 'Chicago',
+    state: 'IL',
+    photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
+    availableUnits: 4,
+    wifi: true,
+    laundry: true,
+  };
 }

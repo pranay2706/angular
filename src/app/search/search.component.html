@@ -6,16 +6,16 @@
 
 
  <div>
-    <h3>Print the value instantly using event</h3>
-    <input #cityInput type="text" placeholder="Filter by city" (input)=onInputChangeInst($event)/>
-    <p>{{showInstString}}</p>
+    <h3> Print the value after click using event</h3>
+    <input type="text" placeholder="Filter by city" (input)=onInputChangeInst($event)/>
+    <button class="primary" type="button" (click)=showAfetClick()>Search</button>
+    <p *ngIf="showdata">{{showAfetClickString}}</p>
 </div>
   
 
 
 <div>
-    <h3>Print the value after click using 2 way binding</h3>
-    <input #cityInput type="text" placeholder="Filter by city" [(ngModel)]="showAfetClickString"/>
-    <button class="primary" type="button"(click)=showAfetClick()>Search</button>
-    <p>{{showdata}}</p>
+    <h3>Print the value instantly using 2 way binding </h3>
+    <input #cityInput type="text" placeholder="Filter by city" [(ngModel)]=" showInstString"/>
+    <p>{{ showInstString}}</p>
 </div> 

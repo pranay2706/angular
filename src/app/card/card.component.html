@@ -5,6 +5,9 @@
       <h3>{{ location.name }}</h3>
       <p>city: {{ location.city }}</p>
       <p>state: {{ location.state }}</p>
+      <button (click)="showLocationDetails(location)">Show Details</button>
     </div>
   </div>
 </div>
+
+<app-card-details *ngIf="showHouseDetails" [housingLocation]="selectedLocation" (hideDetailsEvent)="hideLocationDetails()"></app-card-details>

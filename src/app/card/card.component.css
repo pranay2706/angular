@@ -28,3 +28,15 @@
     background-color: gray;
     padding: 75px 30px;
 }
+
+.card-container>div>button{
+    padding: 5px 20px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 10px;
+
+}

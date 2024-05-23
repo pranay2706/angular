@@ -1,5 +1,6 @@
 import { Component,Input } from '@angular/core';
 import { HousingLocation } from '../housing-location';
+import { CardDetailsComponent } from '../card-details/card-details.component';
 
 @Component({
   selector: 'app-card',
@@ -111,4 +112,17 @@ export class CardComponent {
       laundry: true,
     },
   ];
+
+  selectedLocation!: HousingLocation;
+  showHouseDetails:Boolean=false
+
+  showLocationDetails(location: HousingLocation) {
+    this.selectedLocation = location;
+    this.showHouseDetails=true
+  }
+
+  hideLocationDetails() {
+    this.showHouseDetails = false;
+  }
+
 }

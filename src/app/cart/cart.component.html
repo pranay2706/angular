@@ -1,0 +1,11 @@
+<div class="appCardContainer">
+    <div class="card-container" *ngFor="let location of cartItems">
+      <img [src]="location.photo" alt="photo" class="card-image-container" />
+      <div>
+        <h3>{{ location.name }}</h3>
+        <p>city: {{ location.city }}</p>
+        <p>state: {{ location.state }}</p>   
+      </div>
+    </div>
+  </div>
+  

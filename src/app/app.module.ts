@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { CardComponent } from './card/card.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
+import { HeaderComponent } from './header/header.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     CardComponent,
-    CardDetailsComponent
+    CardDetailsComponent,
+    HeaderComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

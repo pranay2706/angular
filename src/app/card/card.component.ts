@@ -1,6 +1,7 @@
-import { Component,Input } from '@angular/core';
+import { Component,EventEmitter,Input, Output } from '@angular/core';
 import { HousingLocation } from '../housing-location';
 import { CardDetailsComponent } from '../card-details/card-details.component';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-card',
@@ -125,4 +126,8 @@ export class CardComponent {
     this.showHouseDetails = false;
   }
 
+  constructor(private cartService: CartService) {}
+  addToCart(location: HousingLocation) {
+    this.cartService.addToCart(location);
+  }
 }

@@ -2,6 +2,7 @@ import { Component,EventEmitter,Input, Output } from '@angular/core';
 import { HousingLocation } from '../housing-location';
 import { CardDetailsComponent } from '../card-details/card-details.component';
 import { CartService } from '../cart.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -11,7 +12,7 @@ import { CartService } from '../cart.service';
 export class CardComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  housingLocation: HousingLocation[] = [
+  housingLocation: HousingLocation[]  = [
     {
       id: 0,
       name: 'Acme Fresh Start Housing',
@@ -114,8 +115,13 @@ export class CardComponent {
     },
   ];
 
+  
+  
+  duplicateHousingLocation:HousingLocation[]=this.housingLocation.slice()
   selectedLocation!: HousingLocation;
   showHouseDetails:Boolean=false
+  searchString: string = '';
+
 
   showLocationDetails(location: HousingLocation) {
     this.selectedLocation = location;
@@ -126,8 +132,31 @@ export class CardComponent {
     this.showHouseDetails = false;
   }
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,private route: ActivatedRoute,) {}
   addToCart(location: HousingLocation) {
     this.cartService.addToCart(location);
+  }
+
+  
+  ngOnInit(): void {
+    this.housingLocation =[...this.housingLocation];
+
+    this.route.queryParams.subscribe(params => {
+      this.searchString = params['search'];
+      console.log(this.searchString)
+      this.filterLocations();
+    });
+   
+  }
+
+  
+  filterLocations() {
+    if (!this.searchString) {
+      this.housingLocation = [...this.duplicateHousingLocation];
+    } else {
+        this.housingLocation = this.housingLocation.filter(location =>
+        location.name.toLowerCase().includes(this.searchString.toLowerCase())
+      );
+    }
   }
 }

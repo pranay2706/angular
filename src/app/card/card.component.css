@@ -40,3 +40,20 @@
     margin-left: 10px;
 
 }
+
+.card-container>div>div{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap:0;
+}
+
+.card-container>div>div>button{
+    padding: 5px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 10px;
+}

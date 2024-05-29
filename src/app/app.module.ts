@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HouseLocationFormComponent } from './house-location-form/house-location-form.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,15 @@ import { HttpClientModule } from '@angular/common/http';
     CardComponent,
     CardDetailsComponent,
     HeaderComponent,
-    CartComponent
+    CartComponent,
+    HouseLocationFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

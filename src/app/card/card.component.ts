@@ -4,6 +4,7 @@ import { CardDetailsComponent } from '../card-details/card-details.component';
 import { CartService } from '../cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { CardService } from '../card.service';
+import { FormdataService } from '../services/formdata.service';
 
 
 @Component({
@@ -15,16 +16,9 @@ export class CardComponent {
  
   housingLocation: HousingLocation[] = [];
   housingLocation2!:HousingLocation[];
-    constructor(private cartService: CartService,private route: ActivatedRoute, private cardService:CardService) {}
-
-
-  //api https://mocki.io/v1/032eda04-c3cd-47e2-b66e-55e1538d7974
-
-  
-  
   selectedLocation!: HousingLocation;
   showHouseDetails:Boolean=false
-  // searchString: string = '';
+  constructor(private cartService: CartService,private route: ActivatedRoute, private cardService:CardService,private formDataService: FormdataService) {}
 
 
   showLocationDetails(location: HousingLocation) {
@@ -49,13 +43,15 @@ export class CardComponent {
          this.housingLocation.push(item)
         })});
 
-    this.housingLocation =[...this.housingLocation];
-    console.log(this.route.queryParams);
     this.route.queryParams.subscribe(params => {
       let searchString = params['search'];
-      console.log(searchString)
       this.filterLocations(searchString);
     });
+
+    this.formDataService.formData.forEach((item)=>{
+      this.housingLocation.push(item)
+    })
+
     this.housingLocation2 = this.housingLocation;
   }
 
@@ -67,5 +63,10 @@ export class CardComponent {
     }else{
     this.housingLocation2=this.housingLocation
   }
+  }
+
+  deleteLocation(index: number) {
+    this.housingLocation.splice(index, 1);
+    this.housingLocation2 = this.housingLocation;
   }
 }

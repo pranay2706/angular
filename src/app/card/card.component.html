@@ -1,5 +1,5 @@
 <div class="appCardContainer">
-  <div class="card-container" *ngFor="let location of housingLocation2">
+  <div class="card-container" *ngFor="let location of housingLocation2; let i = index">
     <img [src]="location.photo" alt="photo" class="card-image-container" />
     <div>
       <h3>{{ location.name }}</h3>
@@ -7,6 +7,11 @@
       <p>state: {{ location.state }}</p>
       <button (click)="showLocationDetails(location)">Show Details</button>
       <button (click)="addToCart(location)">Add to cart</button>
+      <div>
+        <button (click)="deleteLocation(i)">Delete</button>
+        <button>Update</button>
+      </div>
+
     </div>
   </div>
 </div>

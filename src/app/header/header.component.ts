@@ -27,6 +27,10 @@ export class HeaderComponent {
         queryParams: { search: "" }
       });
     }
-   
+  }
+
+  navigateToHouseLocation(){
+    console.log("hello")
+    this.router.navigate(['/houseLocationform']);
   }
 }

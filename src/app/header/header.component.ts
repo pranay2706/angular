@@ -23,7 +23,9 @@ export class HeaderComponent {
         queryParams: { search: this.searchString },
       });
     }else{
-      this.router.navigate(['/card']);
+      this.router.navigate(['/card'],{
+        queryParams: { search: "" }
+      });
     }
    
   }

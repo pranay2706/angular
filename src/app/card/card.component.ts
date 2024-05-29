@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CardComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
-
+  
   housingLocation: HousingLocation[]  = [
     {
       id: 0,
@@ -114,13 +114,17 @@ export class CardComponent {
       laundry: true,
     },
   ];
+  
+  housingLocation2!:HousingLocation[];
+    constructor(private cartService: CartService,private route: ActivatedRoute,) {}
+
+  //api https://mocki.io/v1/032eda04-c3cd-47e2-b66e-55e1538d7974
 
   
   
-  duplicateHousingLocation:HousingLocation[]=this.housingLocation.slice()
   selectedLocation!: HousingLocation;
   showHouseDetails:Boolean=false
-  searchString: string = '';
+  // searchString: string = '';
 
 
   showLocationDetails(location: HousingLocation) {
@@ -132,7 +136,6 @@ export class CardComponent {
     this.showHouseDetails = false;
   }
 
-  constructor(private cartService: CartService,private route: ActivatedRoute,) {}
   addToCart(location: HousingLocation) {
     this.cartService.addToCart(location);
   }
@@ -140,23 +143,18 @@ export class CardComponent {
   
   ngOnInit(): void {
     this.housingLocation =[...this.housingLocation];
-
+    console.log(this.route.queryParams);
     this.route.queryParams.subscribe(params => {
-      this.searchString = params['search'];
-      console.log(this.searchString)
-      this.filterLocations();
+      let searchString = params['search'];
+      console.log(searchString)
+      this.filterLocations(searchString);
     });
-   
+    this.housingLocation2 = this.housingLocation;
   }
 
   
-  filterLocations() {
-    if (!this.searchString) {
-      this.housingLocation = [...this.duplicateHousingLocation];
-    } else {
-        this.housingLocation = this.housingLocation.filter(location =>
-        location.name.toLowerCase().includes(this.searchString.toLowerCase())
-      );
-    }
-  }
+  filterLocations(searchString:String) {
+        this.housingLocation2 = this.housingLocation.filter(location =>
+        location.name.toLowerCase().includes(searchString.toLowerCase()));
+        }
 }

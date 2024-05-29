@@ -154,7 +154,11 @@ export class CardComponent {
 
   
   filterLocations(searchString:String) {
-        this.housingLocation2 = this.housingLocation.filter(location =>
-        location.name.toLowerCase().includes(searchString.toLowerCase()));
-        }
+    if(searchString){
+    this.housingLocation2 = this.housingLocation.filter(location =>
+    location.name.toLowerCase().includes(searchString.toLowerCase()));
+    }else{
+      this.housingLocation2=this.housingLocation
+    }
+  }
 }

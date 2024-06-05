@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HouseLocationFormComponent } from './house-location-form/house-location-form.component';
+import { UpdateLocationFormComponent } from './update-location-form/update-location-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HouseLocationFormComponent } from './house-location-form/house-location
     CardDetailsComponent,
     HeaderComponent,
     CartComponent,
-    HouseLocationFormComponent
+    HouseLocationFormComponent,
+    UpdateLocationFormComponent
   ],
   imports: [
     BrowserModule,

@@ -25,9 +25,9 @@ export class HouseLocationFormComponent implements OnInit {
     });
   }
 
-  get f() {
-    return this.housingForm.controls;
-  }
+  // get f() {
+  //   return this.housingForm.controls;
+  // }
 
   onSubmit() {
     this.submitted = true;

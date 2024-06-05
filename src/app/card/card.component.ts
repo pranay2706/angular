@@ -5,6 +5,8 @@ import { CartService } from '../cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { CardService } from '../card.service';
 import { FormdataService } from '../services/formdata.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -18,8 +20,9 @@ export class CardComponent {
   housingLocation2!:HousingLocation[];
   selectedLocation!: HousingLocation;
   showHouseDetails:Boolean=false
-  constructor(private cartService: CartService,private route: ActivatedRoute, private cardService:CardService,private formDataService: FormdataService) {}
+  constructor(private cartService: CartService,private route: ActivatedRoute, private cardService:CardService,private formDataService: FormdataService,private router: Router) {}
 
+ 
 
   showLocationDetails(location: HousingLocation) {
     this.selectedLocation = location;
@@ -36,37 +39,59 @@ export class CardComponent {
 
   
   ngOnInit(): void {
-
-    this.cardService.getData().subscribe(
-      (res: any) => {
+    this.cardService.getData().subscribe({
+      next:(res: any) => {
         res.forEach((item: any) => {
+        //  item.id = `${this.housingLocation.length}`;
          this.housingLocation.push(item)
-        })});
+        })
+        this.formDataService.formData.forEach((item:any)=>{  
+          item.id = `${this.housingLocation.length}`;
+          this.housingLocation.push(item)
+        })
+        this.housingLocation[this.cardService.updatedData.id]=this.cardService.updatedData
+        console.log(this.cardService.updatedData)
+        console.log("after",this.housingLocation)
+      },error: (err: any) => {
+        console.error('Error fetching product data', err);
+      }
+    });
 
+      
     this.route.queryParams.subscribe(params => {
       let searchString = params['search'];
       this.filterLocations(searchString);
     });
 
-    this.formDataService.formData.forEach((item)=>{
-      this.housingLocation.push(item)
-    })
-
+   
+  // 0x123 =0x123 
     this.housingLocation2 = this.housingLocation;
   }
 
-  
   filterLocations(searchString:String) {
-    if(searchString){
-    this.housingLocation2 = this.housingLocation.filter(location =>
+  //   if(searchString){
+  //   this.housingLocation2 = this.housingLocation.filter(location =>
+  //   location.name.toLowerCase().includes(searchString.toLowerCase()));
+  //   }
+  //   else{
+  //   this.housingLocation2=this.housingLocation
+  // }
+  this.housingLocation2 = this.housingLocation.filter(location =>
     location.name.toLowerCase().includes(searchString.toLowerCase()));
-    }else{
-    this.housingLocation2=this.housingLocation
+    console.log(this.housingLocation)
   }
-  }
+
 
   deleteLocation(index: number) {
     this.housingLocation.splice(index, 1);
-    this.housingLocation2 = this.housingLocation;
+    // this.housingLocation2 = this.housingLocation;
+  }
+
+  updateLocation(location:HousingLocation){
+    this.router.navigate(['/updateLocation'], { state: { location: location } });
   }
 }
+function updateData() {
+  throw new Error('Function not implemented.');
+}
+

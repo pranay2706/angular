@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CardService {
-
+  updatedData:any;
+  
   constructor(private http: HttpClient) { }
 
   url = "https://mocki.io/v1/1509a579-b73e-474d-af81-d55e427b4712"

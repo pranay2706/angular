@@ -20,8 +20,14 @@ export class CardComponent {
   housingLocation2!:HousingLocation[];
   selectedLocation!: HousingLocation;
   showHouseDetails:Boolean=false
+  showUpdateHouseForm:Boolean=false;
   constructor(private cartService: CartService,private route: ActivatedRoute, private cardService:CardService,private formDataService: FormdataService,private router: Router) {}
 
+  hideUpdateHouseForm() {
+    this.housingLocation[this.cardService.updatedData.id]=this.cardService.updatedData
+    this.showUpdateHouseForm = false;
+  }
+  
  
 
   showLocationDetails(location: HousingLocation) {
@@ -49,9 +55,7 @@ export class CardComponent {
           item.id = `${this.housingLocation.length}`;
           this.housingLocation.push(item)
         })
-        this.housingLocation[this.cardService.updatedData.id]=this.cardService.updatedData
-        console.log(this.cardService.updatedData)
-        console.log("after",this.housingLocation)
+        // this.housingLocation[this.cardService.updatedData.id]=this.cardService.updatedData
       },error: (err: any) => {
         console.error('Error fetching product data', err);
       }
@@ -78,7 +82,6 @@ export class CardComponent {
   // }
   this.housingLocation2 = this.housingLocation.filter(location =>
     location.name.toLowerCase().includes(searchString.toLowerCase()));
-    console.log(this.housingLocation)
   }
 
 
@@ -88,7 +91,8 @@ export class CardComponent {
   }
 
   updateLocation(location:HousingLocation){
-    this.router.navigate(['/updateLocation'], { state: { location: location } });
+    this.selectedLocation = location;
+    this.showUpdateHouseForm=true
   }
 }
 function updateData() {

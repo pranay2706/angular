@@ -43,7 +43,8 @@ export class UpdateLocationFormComponent {
         latitude: this.housingForm.value.latitude,
         longitude: this.housingForm.value.longitude,
       };
-      this.cardService.updatedData=updatedData;
+      this.housingLocation.name=updatedData.name
+      // this.cardService.updatedData=updatedData;
       this.hideFormDetailsEvent.emit();
     } 
   }

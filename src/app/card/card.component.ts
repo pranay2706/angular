@@ -24,7 +24,6 @@ export class CardComponent {
   constructor(private cartService: CartService,private route: ActivatedRoute, private cardService:CardService,private formDataService: FormdataService,private router: Router) {}
 
   hideUpdateHouseForm() {
-    this.housingLocation[this.cardService.updatedData.id]=this.cardService.updatedData
     this.showUpdateHouseForm = false;
   }
   

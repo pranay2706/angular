@@ -15,8 +15,6 @@
   </div>
 </div>
 
-
 <app-update-location-form *ngIf="showUpdateHouseForm" [housingLocation]="selectedLocation" (hideFormDetailsEvent)="hideUpdateHouseForm()"></app-update-location-form>
-
 
 <app-card-details *ngIf="showHouseDetails" [housingLocation]="selectedLocation" (hideDetailsEvent)="hideLocationDetails()"></app-card-details>

@@ -7,7 +7,9 @@ import { HousingLocation } from '../housing-location';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent {
+  
   cartItems: HousingLocation[] = [];
 
   constructor(private cartService: CartService) {

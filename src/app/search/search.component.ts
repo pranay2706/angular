@@ -5,27 +5,27 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
-
 })
+
 export class SearchComponent {
   searchString:string=''
   showInstString:string=''
   showAfetClickString:string=''
   showdata:boolean=false
 
-  onInputChange(e:any){
-    this.searchString=e.target.value
-    console.log(this.searchString)
+  onInputChange(e: Event){
+    const target = e.target as HTMLInputElement; 
+    this.searchString = target.value;
   }
 
-  onInputChangeInst(e:any){
-    this.showdata=false
-    this.showAfetClickString=e.target.value
+  onInputChangeInst(e: Event) {
+    const target = e.target as HTMLInputElement;
+    this.showdata = false; 
+    this.showAfetClickString = target.value; 
   }
+  
 
   showAfetClick(){
     this.showdata=true
   }
-
-
 }

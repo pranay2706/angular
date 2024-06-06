@@ -1,31 +1,31 @@
 <form [formGroup]="housingForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label>Name:</label>
-      <input type="text" formControlName="name" required>
-    </div>
-    <div>
-      <label>City:</label>
-      <input type="text" formControlName="city" required>
-    </div>
-    <div>
-      <label>State:</label>
-      <input type="text" formControlName="state" required>
-    </div>
-    <div>
-      <label>Photo URL:</label>
-      <input type="text" formControlName="photo" required>
-    </div>
-    <div>
-      <label>Available Units:</label>
-      <input type="number" min="0" formControlName="availableUnits" required>
-    </div>
-    <div>
-      <label>Wifi:</label>
-      <input type="checkbox" formControlName="wifi" required>
-    </div>
-    <div>
-      <label>Laundry:</label>
-      <input type="checkbox" formControlName="laundry" required>
-    </div>
-    <button type="submit">Submit</button>
+  <div>
+    <label>Name:</label>
+    <input type="text" formControlName="name" required />
+  </div>
+  <div>
+    <label>City:</label>
+    <input type="text" formControlName="city" required />
+  </div>
+  <div>
+    <label>State:</label>
+    <input type="text" formControlName="state" required />
+  </div>
+  <div>
+    <label>Photo URL:</label>
+    <input type="text" formControlName="photo" required />
+  </div>
+  <div>
+    <label>Available Units:</label>
+    <input type="number" min="0" formControlName="availableUnits" required />
+  </div>
+  <div>
+    <label>Wifi:</label>
+    <input type="checkbox" formControlName="wifi" required />
+  </div>
+  <div>
+    <label>Laundry:</label>
+    <input type="checkbox" formControlName="laundry" required />
+  </div>
+  <button type="submit">Submit</button>
 </form>

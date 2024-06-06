@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
+
 export class HeaderComponent {
   imgUrl = '/assets/1.jpg';
   searchString: string = '';
@@ -30,7 +31,6 @@ export class HeaderComponent {
   }
 
   navigateToHouseLocation(){
-    console.log("hello")
     this.router.navigate(['/houseLocationform']);
   }
 }

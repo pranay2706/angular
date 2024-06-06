@@ -9,22 +9,22 @@ export class CartService {
 
   addToCart(location: HousingLocation) {
    
-    const formattedLocation: any = {
+    const formattedLocation: HousingLocation = {
       id: location.id,
       name: location.name,
       city: location.city,
       state: location.state,
       photo: location.photo,
+      availableUnits:location.availableUnits,
+      wifi:location.wifi,
+      laundry:location.laundry
     };
-
-    
+ 
     const exists = this.cartItems.some(item => item.id === formattedLocation.id);
     
     if (!exists) {
       this.cartItems.push(formattedLocation);
     }
-
-    console.log(this.cartItems);
   }
 
 

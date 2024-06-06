@@ -9,11 +9,13 @@ import { HousingLocation } from '../housing-location';
   templateUrl: './update-location-form.component.html',
   styleUrls: ['./update-location-form.component.css']
 })
+
 export class UpdateLocationFormComponent {
   @Input() housingLocation!:HousingLocation ;
   @Output() hideFormDetailsEvent: EventEmitter<void> = new EventEmitter<void>(); // Event emitter for hiding the form
 
   housingForm: FormGroup; 
+
   constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private cardService: CardService) {
     this.housingForm = this.formBuilder.group({
       id:[''],
@@ -31,22 +33,10 @@ export class UpdateLocationFormComponent {
 
   onSubmit() {
   {
-      const updatedData = {
-        id:this.housingForm.value.id,
-        name: this.housingForm.value.name,
-        city: this.housingForm.value.city,
-        state: this.housingForm.value.state,
-        photo: this.housingForm.value.photo,
-        availableUnits: this.housingForm.value.availableUnits,
-        wifi: this.housingForm.value.wifi, 
-        laundry: this.housingForm.value.laundry,
-        latitude: this.housingForm.value.latitude,
-        longitude: this.housingForm.value.longitude,
-      };
-      this.housingLocation.name=updatedData.name
-      // this.cardService.updatedData=updatedData;
+      const { id, name, city, state, photo, availableUnits, wifi, laundry } = this.housingForm.value;
+      Object.assign(this.housingLocation, { id, name, city, state, photo, availableUnits, wifi, laundry, });
       this.hideFormDetailsEvent.emit();
-    } 
+    }
   }
 
   ngOnInit() {

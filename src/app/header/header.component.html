@@ -1,19 +1,19 @@
 <div class="header">
-    <img [src]="imgUrl" alt="logo">
-    <div class="options">
-        <ul>
-            <a [routerLink]="['/card']"><li>Home</li></a>
-            <a [routerLink]="['/about']"><li>About</li></a>
-            <a [routerLink]="['/prices']"><li>Prices</li></a>
-            <a [routerLink]="['/contactus']"><li>Contact us</li></a>
-        </ul>
-    </div>
-    <div class="searchBar">
-        <input type="text" [(ngModel)]="searchString" >
-        <button (click)="sendDataToParent()">😊</button>
-    </div>
-    <div class="buttons">
-        <button (click)="navigateToCart()">🛒</button>
-        <button (click)=" navigateToHouseLocation()">🏡</button>
-    </div>
+  <img [src]="imgUrl" alt="logo" />
+  <div class="options">
+    <ul>
+      <a [routerLink]="['/card']"><li>Home</li></a>
+      <a [routerLink]="['/about']"><li>About</li></a>
+      <a [routerLink]="['/prices']"><li>Prices</li></a>
+      <a [routerLink]="['/contactus']"><li>Contact us</li></a>
+    </ul>
+  </div>
+  <div class="searchBar">
+    <input type="text" [(ngModel)]="searchString" />
+    <button (click)="sendDataToParent()">😊</button>
+  </div>
+  <div class="buttons">
+    <button (click)="navigateToCart()">🛒</button>
+    <button (click)="navigateToHouseLocation()">🏡</button>
+  </div>
 </div>

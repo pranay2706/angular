@@ -1,12 +1,13 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HousingLocation } from './housing-location';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
-  updatedData:any;
+  updatedData:HousingLocation | undefined;
   
   constructor(private http: HttpClient) { }
 

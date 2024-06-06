@@ -7,6 +7,7 @@ import { FormdataService } from '../services/formdata.service';
   templateUrl: './house-location-form.component.html',
   styleUrls: ['./house-location-form.component.css'],
 })
+
 export class HouseLocationFormComponent implements OnInit {
   housingForm!: FormGroup;
   submitted = false;
@@ -25,14 +26,8 @@ export class HouseLocationFormComponent implements OnInit {
     });
   }
 
-  // get f() {
-  //   return this.housingForm.controls;
-  // }
-
   onSubmit() {
     this.submitted = true;
-
     this.formDataService.formData.push(this.housingForm.value); 
-
   }
 }

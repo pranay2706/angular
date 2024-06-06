@@ -3,7 +3,7 @@ import { HousingLocation } from '../housing-location';
 
 @Component({
   selector: 'app-card-details',
-  templateUrl: './card-details.component.html',
+  templateUrl: './location-card-details.component.html',
   styleUrls: ['./card-details.component.css']
 })
 export class CardDetailsComponent {
